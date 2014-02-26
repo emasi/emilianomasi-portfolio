@@ -488,6 +488,9 @@ text-decoration: underline;
   footer .footer-wrapper {
   word-wrap: break-word;
   }
+  footer .footer-wrapper p{
+  text-align:left;
+  }
 }
 @media screen and (min-width: 321px){
   h1{
