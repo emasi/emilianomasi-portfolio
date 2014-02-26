@@ -554,7 +554,7 @@ text-decoration: underline;
   width: 100%;
   }
   section .top-block-wrapper, section .bottom-block-wrapper{
-  margin-bottom:20px;
+  margin-bottom:0;
   }
 }
 @media only screen and (min-width: 481px){
