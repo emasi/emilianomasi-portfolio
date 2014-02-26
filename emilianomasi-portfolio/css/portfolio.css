@@ -472,6 +472,9 @@ text-decoration: underline;
   section .general-info{
   margin-top: 80px;
   }
+  #section-showon .features{
+  margin-top:20px;
+  }
   .right-col{
   margin-top:20px;
   width: 160px;
@@ -519,7 +522,7 @@ text-decoration: underline;
   width: 32%;
   }
   #section-showon .icon-mootools{
-  height: 59px;
+  height: 36px;
   width: 100%;
   }
   #section-ddb .icon-html5{
@@ -547,8 +550,11 @@ text-decoration: underline;
   width: 48%;
   }
   #section-emdotcom .icon-tweenmax{
-  height: 59px;
+  height: 25px;
   width: 100%;
+  }
+  section .top-block-wrapper, section .bottom-block-wrapper{
+  margin-bottom:20px;
   }
 }
 @media only screen and (min-width: 481px){
