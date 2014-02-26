@@ -375,9 +375,6 @@ margin-top: 20px;
 section .description >*, section .features >*{
 margin-left:80px;
 }
-section .description p, section .involvement p, section .features p{
-text-align: justify;
-}
 section .general-info >*, section .involvement >*{
 margin-right:80px;
 }
@@ -418,13 +415,15 @@ width: 250px;
 }
 .balloon img{
 width: 200px;
+height: 200px;
 }
 .balloon h3{
 margin-bottom: 20px;
 min-height: 42px;
 }
 #section-showon .balloon{
-margin: 0 10px 0 10px;
+margin-left: 10px;
+margin-right: 10px;
 }
 #section-extra .extra-wrapper{
 margin-top:60px;
@@ -457,6 +456,12 @@ text-decoration: underline;
   display: block;
   float: none;
   text-align: center;
+  }
+  .description p, .features p, .involvement p{
+  text-align:left!important;
+  }
+  .involvement h2{
+  text-align:center;
   }
   section .general-info >*, section .involvement >* {
   margin-right: 0;
@@ -644,6 +649,9 @@ text-decoration: underline;
   -moz-column-rule:1px outset #ababab;
   -webkit-column-rule:1px outset #ababab;
   column-rule:1px outset #ababab;
+  }
+  section .description p, section .involvement p, section .features p{
+  text-align: justify;
   }
   #section-showon .involvement .column-wrapper{
   height:390px;
