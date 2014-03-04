@@ -156,7 +156,7 @@ border:solid 1px #ddd;
 html,body {
 font-size:100%;
 min-height:100%;
-min-width:320px;
+min-width:300px;
 height:auto;
 overflow:visible;
 }
@@ -450,7 +450,7 @@ text-decoration: underline;
 }
 
 /*-- BEGIN: Desktop Mediaquery --*/
-@media screen and (max-width: 768px) and (min-width: 321px){
+@media screen and (max-width: 768px) and (min-width: 300px){
   .half-splitter {
   width: 100%;
   display: block;
@@ -483,6 +483,7 @@ text-decoration: underline;
   margin-right: auto;
   }
   .balloon{
+  width: 230px;
   margin-top: 20px;
   }
   .balloon h3{
@@ -495,12 +496,12 @@ text-decoration: underline;
   text-align:left;
   }
 }
-@media screen and (min-width: 321px){
+@media screen and (min-width: 300px){
   h1{
   font-size: 5em;
   }
   .inner {
-  width: 300px;
+  width: 270px;
   }
   header p{
   font-size: 1em;
