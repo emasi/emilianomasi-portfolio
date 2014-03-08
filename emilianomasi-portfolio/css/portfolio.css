@@ -334,6 +334,7 @@ margin-bottom:120px;
 }
 #section-extra{
 margin-bottom:0;
+padding-bottom: 60px;
 }
 section .inner{
 border-top: #ababab 1px solid;
@@ -432,14 +433,18 @@ text-align:center;
 #section-extra .extra-wrapper >div{
 margin-bottom: 60px;
 }
+#section-extra .extra-wrapper >div:last-child {
+margin-bottom: 0;
+}
 #section-extra .extra-title{
 margin-top:20px;
 }
 footer{
 margin-bottom: 80px;
+background: #fff;
 }
 footer .footer-wrapper{
-margin-top: 45px;
+padding-top: 45px;
 text-align:center;
 }
 footer a{
@@ -570,6 +575,16 @@ text-decoration: underline;
   .inner {
   width: 750px;
   }
+  header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  }
+  #content{
+  margin-top: 417px;
+  }
   header p{
   font-size: 1em;
   line-height: 1.4em;
@@ -648,6 +663,9 @@ text-decoration: underline;
   text-align: justify;
   margin-left: 16px;
   margin-right: 16px;
+  }
+  #content{
+  margin-top: 455px;
   }
   #section-showon .involvement .column-wrapper{
   column-count:2;
