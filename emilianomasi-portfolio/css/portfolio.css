@@ -666,33 +666,22 @@ text-decoration: underline;
   #section-showon .involvement .column-wrapper{
   height:390px;
   }
-  #section-showon .icon-html5, #section-emdotcom .icon-html5{
-  height: 86px;
-  width: 32%;
-  }
-  #section-showon .icon-css3, #section-emdotcom .icon-css3{
-  height: 86px;
-  width: 32%;
+  #section-showon .icon-html5, #section-ddb .icon-html5, #section-emdotcom .icon-html5
+  #section-showon .icon-css3, #section-ddb .icon-css3, #section-emdotcom .icon-css3{
+  height: 55px;
+  width: 20%;
   }
   #section-showon .icon-php, #section-emdotcom .icon-php{
-  height: 86px;
-  width: 32%;
+  height: 55px;
+  width: 22%;
   }
   #section-showon .icon-mootools{
-  height: 59px;
-  width: 100%;
-  }
-  #section-ddb .icon-html5{
-  height: 86px;
-  width: 25%;
-  }
-  #section-ddb .icon-css3{
-  height: 86px;
-  width: 25%;
+  height: 40px;
+  width: 65%;
   }
   #section-ddb .icon-bootstrap{
-  height: 82px;
-  width: 45%;
+  height: 52px;
+  width: 38%;
   }
   #section-ddb .icon-grails{
   height: 30px;
@@ -707,8 +696,8 @@ text-decoration: underline;
   width: 48%;
   }
   #section-emdotcom .icon-tweenmax{
-  height: 59px;
-  width: 100%;
+  height: 24px;
+  width: 48%;
   }
 }
 /*-- END: Desktop Mediaquery --*/
