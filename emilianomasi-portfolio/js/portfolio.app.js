@@ -6,10 +6,3 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-34599580-3', 'emilianomasi.com');
 ga('send', 'pageview');
-
-//Simple lazy loading
-$("img[data-original]").css('visibility', 'hidden');
-$("img[data-original]").lazyload({
-    effect : "fadeIn",
-    threshold : -30
-});

@@ -1,0 +1,383 @@
+/*-- SCSS Variables --*/
+//Break points
+$break-xsmall: 300px;
+$break-small: 481px;
+$break-medium: 769px;
+$break-large: 1201px;
+
+/*-- BEGIN: General element rules --*/
+.hidden {
+  display:none!important;
+  visibility:hidden;
+}
+
+a:focus {
+  outline:thin dotted;
+}
+
+a:active,a:hover {
+  outline:0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 100;
+  line-height: 1.3em;
+}
+
+h1 {
+  font-size:2em;
+  margin:.67em 0;
+}
+
+abbr[title] {
+  border-bottom:1px dotted;
+}
+
+b,strong {
+  font-weight:700;
+}
+
+dfn {
+  font-style:italic;
+}
+
+hr {
+  -moz-box-sizing:content-box;
+  box-sizing:content-box;
+  height:0;
+}
+
+mark {
+  background:#ff0;
+  color:#000;
+}
+
+code,kbd,pre,samp {
+  font-family:monospace, serif;
+  font-size:1em;
+}
+
+p{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+pre {
+  white-space:pre-wrap;
+}
+
+q {
+  quotes:\201C \201D \2018 \2019;
+}
+
+small {
+  font-size:80%;
+}
+
+sub,sup {
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline;
+}
+
+sup {
+  top:-.5em;
+}
+
+sub {
+  bottom:-.25em;
+}
+
+img {
+  border:0;
+  -ms-interpolation-mode:bicubic;
+  display:inline-block;
+  vertical-align:middle;
+}
+
+svg:not(:root) {
+  overflow:hidden;
+}
+
+fieldset {
+  border:1px solid silver;
+  margin:0 2px;
+  padding:.35em .625em .75em;
+}
+
+button,input,select,textarea {
+  font-family:inherit;
+  font-size:100%;
+  margin:0;
+}
+
+button,input {
+  line-height:normal;
+}
+
+button,select {
+  text-transform:none;
+}
+
+button,html input[type="button"],input[type="reset"],input[type="submit"] {
+  -webkit-appearance:button;
+  cursor:pointer;
+}
+
+button[disabled],html input[disabled] {
+  cursor:default;
+}
+
+input[type="checkbox"],input[type="radio"] {
+  box-sizing:border-box;
+  padding:0;
+}
+
+input[type="search"] {
+  -webkit-appearance:textfield;
+  -moz-box-sizing:content-box;
+  -webkit-box-sizing:content-box;
+  box-sizing:content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance:none;
+}
+
+textarea {
+  overflow:auto;
+  vertical-align:top;
+  height:auto;
+  min-height:50px;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+  background:#fff;
+  margin-bottom:1.25em;
+  border:solid 1px #ddd;
+}
+
+html,body {
+  font-size:100%;
+  min-height:100%;
+  min-width:300px;
+  height:auto;
+  overflow:visible;
+  -webkit-font-smoothing: antialiased;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+/*-- END: General element rules --*/
+
+/*-- BEGIN: Common rules --*/
+.z-max {
+  z-index: 9999;
+}
+.invisible {
+  visibility: hidden;
+}
+.block-anchor{
+  display: block;
+}
+/*-- END: Common rules --*/
+
+.my-t-grid{
+  .row{
+    position: relative;
+  }
+  [class*='col-'] {
+    padding: 0;
+  }
+}
+
+body {
+  background: #171717;
+  color: #fff;
+  font-style: normal;
+  position: relative;
+  cursor: default;
+  line-height: 1.2em;
+  font-family: Roboto,sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+}
+header .header-wrapper, footer .footer-wrapper{
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+h1, h2 {
+  font-family: 'BebasNeueRegular', Arial, sans-serif;
+}
+header{
+  
+  .row{
+    border-left: #ffffff 5px solid;
+  }
+  
+  h1 {
+    margin: 45px 0 0;
+    line-height: 1em;
+    text-align: center;
+  
+    @media screen and (min-width: $break-large) {
+      font-size: 13em;
+      line-height: 0.74em;
+      text-align: right;
+    }
+  }
+  
+  p{
+    margin: 20px 8px 0 25px;
+  }
+}
+h2{
+  font-size: 2.5em;
+}
+h3{
+  font-weight:bold;
+  font-size: 1.1em;
+}
+#content{
+  margin-top:40px;
+}
+#section-main-projects{
+  .item-image{
+    height: 350px;
+    width:100%;
+    background-size: cover;
+  }
+}
+.block-showon{
+  .item-image{
+    background-image: url("../images/block_showon.png");
+  }
+}
+.block-ddb{
+  .item-image{
+    background-image: url("../images/block_ddb.png");
+  }
+}
+.block-emdotcom{
+  .item-image{
+    background-image: url("../images/block_emdotcom.png");
+  }
+}
+section header{
+  position: absolute;
+  top: 20px;
+  font-size: 1.2em;
+  background: #1c2126;
+  line-height: 1.8em;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: #ffffff 5px solid;
+}
+.item-title{
+  position: absolute;
+  top: 52px;
+  background: #1f282d;
+  line-height: 1.8em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#section-mobile-apps, #section-covers, #section-free-hand-draws{
+  .item-image{
+    background-size: cover;
+  }
+}
+#section-mobile-apps{
+  .item-image{
+    background-image: url("../images/section_mobile_apps.png");
+  }
+}
+#section-covers{
+  .item-image{
+    background-image: url("../images/section_covers.png");
+  }
+}
+#section-free-hand-draws{
+  .item-image{
+    background-image: url("../images/section_free_hand_draws.png");
+  }
+}
+.vertical-sections{
+  margin-top: 20px;
+
+  .item-image{
+    height:430px;
+  }
+  
+  @media screen and (min-width: $break-large) {
+    >div{
+      width: 32%;
+    }
+    >div:nth-child(2){
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+  }
+}
+footer {
+  padding-top: 50px;
+  margin-bottom:0;
+  color:white;
+  
+  .my-t-grid .row{
+    padding-bottom:50px;
+    margin-bottom: 0;
+  }
+  h2{
+    text-align: center;
+  }
+  p{
+   text-align:center;
+  }
+  .email-address {
+    text-align: center;
+    margin: 20px 0;
+    
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.4em;
+    }
+  }
+  .social-links-container {
+    display: block;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .linkedin-link, .twitter-link, .github-link {
+    background-image: url("http://www.emilianomasi.com/images/social_icons_sprite.png");
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+  }
+  .linkedin-link, .twitter-link {
+    width: 143px;
+    height: 145px;
+    display: inline-block;
+  }
+  .twitter-link {
+    background-position: -142px 0px;
+  }
+  .github-link {
+    display: block;
+    background-position: -53px -175px;
+    width: 175px;
+    height: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+  }
+}
