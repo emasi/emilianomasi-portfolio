@@ -220,7 +220,21 @@ section header {
   line-height: 1.8em;
   padding-left: 10px;
   padding-right: 10px;
-  border-left: #ffffff 5px solid; }
+  border-left: #ffffff 5px solid;
+  z-index: 1; }
+
+.item-wrapper {
+  color: #ffffff; }
+  .item-wrapper .item-image {
+    opacity: 1;
+    -webkit-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .item-wrapper:hover .item-image {
+    -webkit-transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0.7; }
 
 .item-title {
   position: absolute;
@@ -231,7 +245,10 @@ section header {
   padding-right: 10px; }
 
 #section-mobile-apps .item-image, #section-covers .item-image, #section-free-hand-draws .item-image {
-  background-size: cover; }
+  background: 50% 50% no-repeat;
+  background-size: cover;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 #section-mobile-apps .item-image {
   background-image: url("../images/section_mobile_apps.png"); }
