@@ -84,28 +84,5 @@ emPortfolioApp.controller('freehanddrawsController', function($scope) {
 });
 
 emPortfolioApp.service("ytService", ["$window", function(window) {
-  var tag = document.createElement('script');
 
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-  var player;
-  var isFirstPlay = false;
-  window.onYouTubeIframeAPIReady = function() {
-    player = new YT.Player($('iframe.header-multimedia').attr('id'), {
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
-    });
-    console.log(player)
-  }
-  
-  onPlayerStateChange = function(event){
-    console.log("state changed")
-    if(event.data == YT.PlayerState.PLAYING && !isFirstPlay){
-      isFirstPlay = true;
-      console.log(player)
-    }
-  }
 }]);
