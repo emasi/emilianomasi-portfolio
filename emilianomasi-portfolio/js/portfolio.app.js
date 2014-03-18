@@ -10,7 +10,7 @@ ga('send', 'pageview');
 
 //create the module and name it emPortfolioApp
 // also include ngRoute for all our routing needs
-var emPortfolioApp = angular.module('emPortfolioApp', ['ngRoute']);
+var emPortfolioApp = angular.module('emPortfolioApp', ['ngRoute', 'ngAnimate']);
 
 // configure our routes
 emPortfolioApp.config(function($routeProvider) {
@@ -56,33 +56,29 @@ emPortfolioApp.config(function($routeProvider) {
 
 // create the controller and inject Angular's $scope
 emPortfolioApp.controller('mainController', function($scope) {
-
+  $scope.pageClass = 'page-home';
 });
 
-emPortfolioApp.controller('showonController', ["$scope", "ytService", function(scope, ytService) {
-  console.log("here we are")
-}]);
+emPortfolioApp.controller('showonController', function($scope) {
+  $scope.pageClass = 'page-showon';
+});
 
 emPortfolioApp.controller('ddbController', function($scope) {
-
+  $scope.pageClass = 'page-ddb';
 });
 
 emPortfolioApp.controller('emdotcomController', function($scope) {
-
+  $scope.pageClass = 'page-emdotcom';
 });
 
 emPortfolioApp.controller('mobileappsController', function($scope) {
-
+  $scope.pageClass = 'page-mobileapps';
 });
 
 emPortfolioApp.controller('coversController', function($scope) {
-
+  $scope.pageClass = 'page-covers';
 });
 
 emPortfolioApp.controller('freehanddrawsController', function($scope) {
-
+  $scope.pageClass = 'page-freehanddraws';
 });
-
-emPortfolioApp.service("ytService", ["$window", function(window) {
-
-}]);

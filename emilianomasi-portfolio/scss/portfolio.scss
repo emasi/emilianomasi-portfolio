@@ -6,8 +6,74 @@ $break-medium: 769px;
 $break-large: 1201px;
 
 //General constants
+$color0: #171717;
 $color1: #1f282d;
 $color2: #1c2126;
+
+//Animations
+@-webkit-keyframes article-item-enter {
+    0% {
+        -webkit-transform: translate3d(0,-200px,0);
+        -moz-transform: translate3d(0,-200px,0);
+        transform: translate3d(0,-200px,0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes article-item-enter {
+    0% {
+        -webkit-transform: translate3d(0,-200px,0);
+        -moz-transform: translate3d(0,-200px,0);
+        transform: translate3d(0,-200px,0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes article-item-enter {
+    0% {
+        -webkit-transform: translate3d(0,-200px,0);
+        -moz-transform: translate3d(0,-200px,0);
+        transform: translate3d(0,-200px,0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
+
+@keyframes article-item-enter {
+    0% {
+        -webkit-transform: translate3d(0,-200px,0);
+        -moz-transform: translate3d(0,-200px,0);
+        transform: translate3d(0,-200px,0);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+    }
+}
 
 /*-- BEGIN: General element rules --*/
 .hidden {
@@ -202,7 +268,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 }
 
 body {
-  background: #171717;
+  background: $color0;
   color: #fff;
   font-style: normal;
   position: relative;
@@ -558,4 +624,26 @@ div[class*='icon-']{
     width: 100%;
     border: #e6e6e6 2px solid;
   }
+}
+
+.ng-enter{
+  -webkit-animation: article-item-enter 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+  -moz-animation: article-item-enter 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+  animation: article-item-enter 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+  -webkit-animation-fill-mode: both;
+  -khtml-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.ng-enter-active {
+  opacity:1;
+}
+.ng-leave {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+.ng-leave-active {
+  opacity:0;
 }
