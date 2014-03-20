@@ -24,61 +24,48 @@ emPortfolioApp.config(function($routeProvider) {
 
   .when('/projects/showon', {
     templateUrl : 'pages/projects/showon',
-    controller  : 'showonController'
+    controller  : 'mainController'
   })
   
   .when('/projects/ddb', {
     templateUrl : 'pages/projects/ddb',
-    controller  : 'ddbController'
+    controller  : 'mainController'
   })
   
   .when('/projects/emdotcom', {
     templateUrl : 'pages/projects/emdotcom',
-    controller  : 'emdotcomController'
+    controller  : 'mainController'
   })
   
-  .when('/projects/mobile-apps', {
+  .when('/mobile-apps', {
     templateUrl : 'pages/mobile-apps',
-    controller  : 'mobileappsController'
+    controller  : 'mainController'
   })
   
-  .when('/projects/covers', {
+  .when('/covers', {
     templateUrl : 'pages/covers',
-    controller  : 'coversController'
+    controller  : 'mainController'
   })
   
-  .when('/projects/free-hand-draws', {
+  .when('/free-hand-draws', {
     templateUrl : 'pages/free-hand-draws',
-    controller  : 'freehanddrawsController'
+    controller  : 'mainController'
   })
 
 });
 
 // create the controller and inject Angular's $scope
-emPortfolioApp.controller('mainController', function($scope) {
-  $scope.pageClass = 'page-home';
-});
+emPortfolioApp.controller('mainController', ["$scope", "animationService", function($scope, animationService) {
+  animationService.scrollTo(0, 500);
+}]);
 
-emPortfolioApp.controller('showonController', function($scope) {
-  $scope.pageClass = 'page-showon';
-});
-
-emPortfolioApp.controller('ddbController', function($scope) {
-  $scope.pageClass = 'page-ddb';
-});
-
-emPortfolioApp.controller('emdotcomController', function($scope) {
-  $scope.pageClass = 'page-emdotcom';
-});
-
-emPortfolioApp.controller('mobileappsController', function($scope) {
-  $scope.pageClass = 'page-mobileapps';
-});
-
-emPortfolioApp.controller('coversController', function($scope) {
-  $scope.pageClass = 'page-covers';
-});
-
-emPortfolioApp.controller('freehanddrawsController', function($scope) {
-  $scope.pageClass = 'page-freehanddraws';
-});
+emPortfolioApp.service("animationService", [function() {
+  var win = $(window), globalContainers = $("html, body");
+  
+  var animationServiceObject = {
+      scrollTo: function(value, time){
+        globalContainers.animate({scrollTop: value}, time?time:1000);
+      }
+  };
+  return animationServiceObject;
+}]);
