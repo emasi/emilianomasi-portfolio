@@ -7,6 +7,22 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-34599580-3', 'emilianomasi.com');
 ga('send', 'pageview');
 
+jQuery.fn.animateAuto = function(prop, speed, callback){
+  var elem, height, width;
+  return this.each(function(i, el){
+      el = jQuery(el), elem = el.clone().css({"height":"auto","width":"auto"}).appendTo(el.parent());
+      height = elem.css("height"),
+      width = elem.css("width"),
+      elem.remove();
+      
+      if(prop === "height")
+          el.animate({"height":height}, speed, callback);
+      else if(prop === "width")
+          el.animate({"width":width}, speed, callback);  
+      else if(prop === "both")
+          el.animate({"width":width,"height":height}, speed, callback);
+  });  
+}
 
 //create the module and name it emPortfolioApp
 // also include ngRoute for all our routing needs
@@ -24,47 +40,78 @@ emPortfolioApp.config(function($routeProvider) {
 
   .when('/projects/showon', {
     templateUrl : 'pages/projects/showon',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
   
   .when('/projects/ddb', {
     templateUrl : 'pages/projects/ddb',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
   
   .when('/projects/emdotcom', {
     templateUrl : 'pages/projects/emdotcom',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
   
   .when('/mobile-apps', {
     templateUrl : 'pages/mobile-apps',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
   
   .when('/covers', {
     templateUrl : 'pages/covers',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
   
   .when('/free-hand-draws', {
     templateUrl : 'pages/free-hand-draws',
-    controller  : 'mainController'
+    controller  : 'pageController'
   })
 
 });
 
 // create the controller and inject Angular's $scope
 emPortfolioApp.controller('mainController', ["$scope", "animationService", function($scope, animationService) {
-  animationService.scrollTo(0, 500);
+  var paragraph = $('header p');
+  animationService.heightToAuto(
+      paragraph,
+      100,
+      function(){
+        animationService.scrollTo(0, 400);
+      }
+  );
+}]);
+
+emPortfolioApp.controller('pageController', ["$scope", "animationService", function($scope, animationService) {
+  var paragraph = $('header p');
+  animationService.heightTo(
+      $('header p'),
+      0,
+      100,
+      function(){
+        animationService.scrollTo(0, 400);
+      }
+   );
 }]);
 
 emPortfolioApp.service("animationService", [function() {
   var win = $(window), globalContainers = $("html, body");
   
   var animationServiceObject = {
-      scrollTo: function(value, time){
-        globalContainers.animate({scrollTop: value}, time?time:1000);
+      scrollTo: function(value, time, callback){
+        globalContainers.animate({scrollTop: value}, time?time:1000, null, callback);
+      },
+      fadeIn: function(element, callback){
+        element.fadeIn(800, callback);
+      },
+      fadeOut: function(element, callback){
+        element.fadeOut('fast', callback);
+      },
+      heightTo: function(element, value, time, callback){
+        element.animate({height: value}, time?time:1000, null, callback);
+      },
+      heightToAuto: function(element, time, callback){
+        element.animateAuto("height", time, callback);
       }
   };
   return animationServiceObject;

@@ -29,6 +29,12 @@ $color2: #1c2126;
   transform: $transformation;
 }
 
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  transition: $transition;
+}
+
 //Animations
 @-webkit-keyframes falling-down {
     0% {
@@ -301,15 +307,21 @@ h1, h2 {
 }
 
 header{
-  
-  .row{
-    border-left: #ffffff 5px solid;
+
+  @media screen and (min-width: $break-medium) {
+    .row{
+      border-left: #ffffff 5px solid;
+    }
   }
   
   h1 {
     margin: 45px 0 0;
     line-height: 1em;
     text-align: center;
+    
+    @media screen and (min-width: $break-xsmall) {
+      font-size: 5em;
+    }
     
     @media screen and (min-width: $break-medium) {
       font-size: 8em;
@@ -319,33 +331,67 @@ header{
   
     @media screen and (min-width: $break-large) {
       font-size: 13em;
-      line-height: 0.74em;
-      text-align: right;
     }
   }
   
   p{
-    margin: 20px 8px 0 25px;
+    margin: 15px 5px 20px 8px;
+    text-align: left;
     color: #8c989c;
+    height: auto;
+    overflow: hidden;
+    
+    @include transition(height 0.25s cubic-bezier(0.165, 0.84, 0.44, 1));
+    
+    @media screen and (min-width: $break-small){
+      text-align: justify;
+    }
+    
+    @media screen and (min-width: $break-medium){
+      margin: 20px 8px 0 25px;
+      text-align: left;
+    }
   }
 }
 
 h1{
-  font-size: 3.5em;
   line-height: 1em;
+  
+  @media screen and (min-width: $break-xsmall) {
+    font-size: 2.5em;
+  }
+  
+  @media screen and (min-width: $break-medium) {
+    font-size: 3.5em;
+  }
 }
 
 h2{
-  font-size: 2.5em;
+
+  @media screen and (min-width: $break-xsmall) {
+    font-size: 2em;
+  }
+  
+  @media screen and (min-width: $break-medium) {
+    font-size: 2.5em;
+  }
 }
 
 h3{
   font-weight:bold;
-  font-size: 1.1em;
+  
+  @media screen and (min-width: $break-xsmall) {
+    font-size: 1em;
+  }
+  
+  @media screen and (min-width: $break-medium) {
+    font-size: 1.1em;
+  }
 }
 
 #content{
   margin-top:40px;
+  min-height: 500px;
 }
 
 #section-main-projects{
@@ -353,6 +399,14 @@ h3{
     background-position: center;
     background-size: cover;
     width:100%;
+    
+    @media screen and (min-width: $break-xsmall) {
+      height: 150px;
+    }
+    
+    @media screen and (min-width: $break-small) {
+      height: 200px;
+    }
     
     @media screen and (min-width: $break-medium) {
       height: 250px;
@@ -367,18 +421,24 @@ h3{
 }
 
 .block-showon{
+  position: relative;
+  
   .item-image{
     background-image: url(../images/block_showon.png);
   }
 }
 
 .block-ddb{
+  position: relative;
+  
   .item-image{
     background-image: url(../images/block_ddb.png);
   }
 }
 
 .block-emdotcom{
+  position: relative;
+  
   .item-image{
     background-image: url(../images/block_emdotcom.png);
   }
@@ -401,18 +461,14 @@ section header{
   
   .item-image{
     opacity: 1;
-    -webkit-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -moz-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-transform: perspective(0) rotateY(0);
+    @include transition(opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1));
+    @include transform(perspective(0) rotateY(0));
   }
   
   &:hover .item-image{
-    -webkit-transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -moz-transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    @include transition(all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1));
+    @include transform(perspective(100) rotateY(2deg));
     opacity: 0.7;
-    -webkit-transform: perspective(100) rotateY(2deg);
   }
 }
 
@@ -425,7 +481,14 @@ section header{
   padding-right: 10px;
 }
 
-#section-mobile-apps, #section-covers, #section-free-hand-draws{
+#section-mobile-apps{
+  margin-bottom: 20px;
+  position: relative;
+  
+  @media screen and (min-width: $break-medium) {
+    margin-bottom: 0;
+  }
+  
   .item-image{
     background: 50% 50% no-repeat;
     background-size: cover;
@@ -435,33 +498,55 @@ section header{
 }
 
 #section-mobile-apps{
+  @extend #section-mobile-apps;
+  
   .item-image{
     background-image: url(../images/section_mobile_apps.png);
   }
 }
 
 #section-covers{
+  @extend #section-mobile-apps;
+  
   .item-image{
     background-image: url(../images/section_covers.png);
   }
 }
 
 #section-free-hand-draws{
+  @extend #section-mobile-apps;
+  
   .item-image{
     background-image: url(../images/section_free_hand_draws.png);
   }
 }
 
 .vertical-sections{
-  margin-top: 20px;
-
+  margin-top: 40px;
+  
   .item-image{
+  
+    @media screen and (min-width: $break-xsmall) {
+      height: 150px;
+    }
+    
+    @media screen and (min-width: $break-small) {
+      height: 200px;
+    }
+    
     @media screen and (min-width: $break-medium) {
       height: 300px;
+      margin-top: 20px;
     }
     
     @media screen and (min-width: $break-large) {
       height: 430px;
+    }
+  }
+  
+  @media screen and (min-width: $break-xsmall) {
+    >div{
+      width: 100%;
     }
   }
   
@@ -508,7 +593,6 @@ footer {
   
   .social-links-container {
     display: block;
-    width: 350px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -538,6 +622,12 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
+  }
+}
+
+.project-name h1{
+  @media only screen and (min-width: $break-xsmall) and (max-width: $break-large - 1){
+    margin: 0;
   }
 }
 
@@ -587,42 +677,47 @@ div[class*='icon-']{
 }
 
 .icon-html5, .icon-css3, .icon-php{
-  @media only screen and (min-width: 1201px){
+  @media only screen and (min-width: $break-large){
     width: 30px;
     height: 33px;
   }
 }
 
 .icon-mootools{
-  @media only screen and (min-width: 1201px){
+  @media only screen and (min-width: $break-large){
     width: 135px;
     height: 33px;
   }
 }
 
 .icon-tweenmax{
-  @media only screen and (min-width: 1201px){
+  @media only screen and (min-width: $break-large){
     width: 100px;
     height: 20px;
   }
 }
 
 .icon-bootstrap{
-  @media only screen and (min-width: 1201px){
+  @media only screen and (min-width: $break-large){
     width: 58px;
     height: 33px;
   }
 }
 
 .icon-jquery, .icon-angularjs, .icon-grails{
-  @media only screen and (min-width: 1201px){
+  @media only screen and (min-width: $break-large){
     width: 85px;
     height: 33px;
   }
 }
 
 .technology-palette{
-  margin-top: 15px;
+  display: none;
+  
+  @media only screen and (min-width: $break-large){
+    display: block;
+    margin-top: 15px;
+  }
   
   .technologies-list{
       li {
@@ -631,26 +726,40 @@ div[class*='icon-']{
   }
 }
 
-.others, .url{
+.url{
   margin-top: 15px;
+    @media only screen and (min-width: $break-small) and (max-width: $break-large - 1){
+      h3{
+        display:none;
+      }
+    }
+}
+.others{
+  @extend .url;
+  display: none;
+  
+  @media only screen and (min-width: $break-large){
+    display: block;
+  }
+  
 }
 
 .header-multimedia{
   width: 100%;
   
-  @media screen and (min-width: $break-large) {
+  @media screen and (min-width: $break-xsmall) {
+    height: 255px;
+  }
+  
+  @media screen and (min-width: $break-medium) {
     height: 350px;
   }
 }
 
 .header-image{
-  width: 100%;
+  @extend .header-multimedia;
   background-size: cover;
   background-position: center;
-  
-  @media screen and (min-width: $break-large) {
-    height: 350px;
-  }
 }
 
 [icon]{
@@ -691,9 +800,14 @@ div[class*='icon-']{
     margin-bottom: 0;
     
     .general-info{
-      position: absolute;
-      padding: 15px 25px;
+      padding: 15px 80px 15px 25px;
       z-index: 1;
+      
+      @media screen and (min-width: $break-large) {
+        padding: 15px 25px;
+        position: absolute;
+      }
+      
     }
   }
   
@@ -705,7 +819,11 @@ div[class*='icon-']{
     .content-data{
       background: #ffffff;
       color: $color1;
-      padding: 55px 30px 55px 30px;
+      padding: 55px 15px 55px 15px;
+      
+      @media screen and (min-width: $break-small) {
+        padding: 55px 30px 55px 30px;
+      }
       
       .involvement, .features, .hr-entry{
         margin-top: 35px;
@@ -739,13 +857,16 @@ div[class*='icon-']{
   }
   
   .close-button{
-    top: -3px;
+    @media screen and (min-width: $break-large) {
+      top: -3px;
+    }
   }
 }
 
 .balloon{
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
   
   .ballon-header{
     position: absolute;
@@ -755,6 +876,7 @@ div[class*='icon-']{
     padding-left: 10px;
     padding-right: 10px;
     margin: 15px 0 0 2px;
+    max-width: 98%;
   }
   
   img{
