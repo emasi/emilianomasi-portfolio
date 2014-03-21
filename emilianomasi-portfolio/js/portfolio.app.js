@@ -9,6 +9,12 @@ ga('send', 'pageview');
 
 jQuery.fn.animateAuto = function(prop, speed, callback){
   var elem, height, width;
+  var newCallback = function(element){
+    element.css('height', 'auto');
+    console.log(element)
+    if(callback)
+      callback();
+  }
   return this.each(function(i, el){
       el = jQuery(el), elem = el.clone().css({"height":"auto","width":"auto"}).appendTo(el.parent());
       height = elem.css("height"),
@@ -16,11 +22,11 @@ jQuery.fn.animateAuto = function(prop, speed, callback){
       elem.remove();
       
       if(prop === "height")
-          el.animate({"height":height}, speed, callback);
+          el.animate({"height":height}, speed, function(){newCallback(el)});
       else if(prop === "width")
-          el.animate({"width":width}, speed, callback);  
+          el.animate({"width":width}, speed, function(){newCallback(el)});  
       else if(prop === "both")
-          el.animate({"width":width,"height":height}, speed, callback);
+          el.animate({"width":width,"height":height}, speed, function(){newCallback(el)});
   });  
 }
 
