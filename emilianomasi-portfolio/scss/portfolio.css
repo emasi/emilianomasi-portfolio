@@ -341,9 +341,9 @@ section header {
   color: #ffffff; }
   .item-wrapper .item-image {
     opacity: 1;
-    -webkit-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -moz-transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -moz-transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
     -webkit-transform: perspective(0) rotateY(0);
     -moz-transform: perspective(0) rotateY(0);
     transform: perspective(0) rotateY(0); }
@@ -570,7 +570,8 @@ div[class*='icon-'] {
   width: 60px;
   height: 60px;
   text-align: center;
-  background-color: #1c2126; }
+  background-color: #1c2126;
+  z-index: 1; }
   .close-button [icon] {
     margin-left: 5px;
     margin-top: 5px; }
@@ -587,8 +588,7 @@ div[class*='icon-'] {
         position: absolute; } }
 #project-showon .content-row, #project-ddb .content-row, #project-emdotcom .content-row, #mobile-apps .content-row, #covers .content-row, #free-hand-draws .content-row {
   background-color: #1f282d;
-  top: -3px;
-  z-index: -1; }
+  top: -3px; }
   #project-showon .content-row .content-data, #project-ddb .content-row .content-data, #project-emdotcom .content-row .content-data, #mobile-apps .content-row .content-data, #covers .content-row .content-data, #free-hand-draws .content-row .content-data {
     background: #ffffff;
     color: #1f282d;
@@ -630,16 +630,17 @@ div[class*='icon-'] {
     width: 100%;
     border: #e6e6e6 2px solid; }
 
-.ng-enter {
-  -webkit-animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
-  -moz-animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
-  animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
-  -webkit-animation-fill-mode: both;
-  -khtml-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -ms-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both; }
+@media screen and (min-width: 769px) {
+  .ng-enter {
+    -webkit-animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+    -moz-animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+    animation: falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal;
+    -webkit-animation-fill-mode: both;
+    -khtml-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both; } }
 
 .ng-enter-active {
   opacity: 1; }

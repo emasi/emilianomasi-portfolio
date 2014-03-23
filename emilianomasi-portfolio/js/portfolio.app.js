@@ -11,7 +11,6 @@ jQuery.fn.animateAuto = function(prop, speed, callback){
   var elem, height, width;
   var newCallback = function(element){
     element.css('height', 'auto');
-    console.log(element)
     if(callback)
       callback();
   }
@@ -81,7 +80,7 @@ emPortfolioApp.controller('mainController', ["$scope", "animationService", funct
   var paragraph = $('header p');
   animationService.heightToAuto(
       paragraph,
-      100,
+      200,
       function(){
         animationService.scrollTo(0, 400);
       }

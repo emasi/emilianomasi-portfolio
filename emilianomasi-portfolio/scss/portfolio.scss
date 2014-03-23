@@ -461,7 +461,7 @@ section header{
   
   .item-image{
     opacity: 1;
-    @include transition(opacity 0.45s cubic-bezier(0.165, 0.84, 0.44, 1));
+    @include transition(all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1));
     @include transform(perspective(0) rotateY(0));
   }
   
@@ -787,6 +787,7 @@ div[class*='icon-']{
   height: 60px;
   text-align: center;
   background-color: #1c2126;
+  z-index: 1;
   
   [icon]{
     margin-left:5px;
@@ -814,7 +815,6 @@ div[class*='icon-']{
   .content-row{
     background-color: $color1;
     top: -3px;
-    z-index: -1;
     
     .content-data{
       background: #ffffff;
@@ -886,7 +886,9 @@ div[class*='icon-']{
 }
 
 .ng-enter{
-  @include animation(falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal);
+  @media screen and (min-width: $break-medium) {
+    @include animation(falling-down 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s 1 normal);
+  }
 }
 
 .ng-enter-active {
